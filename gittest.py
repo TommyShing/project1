@@ -35,3 +35,18 @@ def chicken_checkin() -> None:
         "http://j01.space/user/checkin"
     )
     logger.info(checkin_resp.json())
+    
+if __name__ == "__main__":
+    
+    errors = []  # type: List[Optional[Exception]]
+    for func in (
+        chicken_checkin, 
+    ):
+        try:
+            func()
+        except Exception as e:
+            errors.append(e)
+
+    for er in errors:
+        if isinstance(er, Exception):
+            raise er
