@@ -23,9 +23,7 @@ jobs:
 
       - name: install dependencies
         run: pip install httpx
-      
-      - name: install dependencies
-        run: pip install selenium
+             pip install selenium
 
       - name: checkin
         env:
