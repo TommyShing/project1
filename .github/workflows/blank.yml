@@ -29,6 +29,6 @@ jobs:
 
       - name: checkin
         env:
-          CHICKEN_MAIL: ${{ secrets.USR }}
-          CHICKEN_PASSWORD: ${{ secrets.PWD }}
+          USR: ${{ secrets.USR }}
+          PWD: ${{ secrets.PWD }}
         run: python gittest_beta.py
