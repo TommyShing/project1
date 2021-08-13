@@ -23,9 +23,12 @@ jobs:
 
       - name: install dependencies
         run: pip install httpx
+      
+      - name: install dependencies
+        run: pip installselenium
 
       - name: checkin
         env:
-          CHICKEN_MAIL: ${{ secrets.CHICKEN_MAIL }}
-          CHICKEN_PASSWORD: ${{ secrets.CHICKEN_PASSWORD }}
-        run: python gittest.py
+          CHICKEN_MAIL: ${{ secrets.USR }}
+          CHICKEN_PASSWORD: ${{ secrets.PWD }}
+        run: python gittest_beta.py
