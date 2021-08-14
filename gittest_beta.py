@@ -4,8 +4,9 @@ import logging.config
 import os
 import re
 import time
+import requests
 from selenium import webdriver
-
+from bs4 import BeautifulSoup
 import httpx 
 
 
@@ -24,12 +25,11 @@ acc_input.send_keys(username)
 pwd_input = browser.find_element_by_xpath('//*[@id="password"]')
 pwd_input.send_keys(password)
 
-browser.find_element_by_xpath('//*[@id="remember"]').click()
+r = requests.get('https://www.xshellz.com/login')
 
-browser.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[2]/div/div/div/div/form/button').click()
-time.sleep(10)
+html_doc = (r.text)
 
-browser.get('https://www.xshellz.com/xpanel/shell/135211')
-time.sleep(10)
-browser.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[11]/div/div/table/tbody/tr[7]/td[2]/div/div[1]/button').click()
-time.sleep(10)
+soup = BeautifulSoup(html_doc, 'html.parser')
+
+print(soup.prettify())
+
